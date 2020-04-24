@@ -128,13 +128,66 @@
 // SIDE NAVIGATION
 
 .side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
   &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
-  &__link {
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+    // here the width transition takes .4 seconds with a delay of .2 seconds, so that the pseudo-element first grows vertically, and then grows horizontally
+    // the cubic-bezier value creates an slow-fast-slow effect
+    // in our transition property we can set different values for different propertiess
   }
+  // nav item hover effect
+  // create a ::before pseudo-element that is set to appear and disappear on hover
+  // need to set a content property or won't show
+  // set to position: absolute and set its parent (__item) to position: relative
+  // set properties on ::before pseudo-element on :hover below
+  &__item:hover::before {
+    transform: scaleY(
+      1
+    ); // makes the element start from the middle and grow to the top and bottom (in the y direction)
+    width: 100%;
+  }
+
+  &__item--active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+  }
+
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; // the colour of the current element or the parent (the parent is side-nav__link so it inherits that colour)
   }
 }
 
