@@ -8,10 +8,14 @@
 }
 
 .header {
+  font-size: 1.4rem;
   height: 7 rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2);
   width: 100%;
+  display: flex; // parent flex-container for logo, input box, magnifying glass etc
+  justify-content: space-between; // align items along main axis
+  align-items: center; // align items along cross-axis
 }
 
 .content {
