@@ -17,6 +17,41 @@
     <div class="container">
       <header class="header">
         Header
+        <img src="img/logo.png" alt="trillo logo" class="logo" />
+        <form action="#" class="search">
+          <input
+            type="text"
+            class="search__input"
+            placeholder="Search hotels"
+          />
+          <!--to include svg files from sprite.svg...-->
+          <svg class="search__icon">
+            <use xlink:href="img/symbol-defs.svg#icon-magnifying-glass"></use>
+          </svg>
+          <button class="search__button"></button>
+        </form>
+        <nav class="user-nav">
+          <div class="user-nav__icon-box">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/symbol-defs.svg#icon-bookmark"></use>
+            </svg>
+            <span class="user-nav__notification">4</span>
+          </div>
+          <div class="user-nav__icon-box">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/symbol-defs.svg#icon-chat"></use>
+            </svg>
+            <span class="user-nav__notification">13</span>
+          </div>
+          <div class="user-nav__user">
+            <img
+              src="img/user.jpg"
+              alt="User photo"
+              class="user-nav__user-photo"
+            />
+            <span class="user-nav__user-name">John</span>
+          </div>
+        </nav>
       </header>
       <div class="content">
         <nav class="sidebar">
@@ -32,3 +67,6 @@
 
 <!--3 main components are header, sidebar and main section-->
 <!-- div content = the entire part below the header (sidebar and main section)-->
+
+<!-- icomoon - free library of svg icons -->
+<!-- https://icomoon.io/app/#/select/library -->
