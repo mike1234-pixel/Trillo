@@ -149,15 +149,8 @@
     transform: scaleY(0);
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
       background-color 0.1s;
-    // here the width transition takes .4 seconds with a delay of .2 seconds, so that the pseudo-element first grows vertically, and then grows horizontally
-    // the cubic-bezier value creates an slow-fast-slow effect
-    // in our transition property we can set different values for different propertiess
   }
-  // nav item hover effect
-  // create a ::before pseudo-element that is set to appear and disappear on hover
-  // need to set a content property or won't show
-  // set to position: absolute and set its parent (__item) to position: relative
-  // set properties on ::before pseudo-element on :hover below
+
   &__item:hover::before {
     transform: scaleY(
       1
@@ -199,4 +192,43 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+}
+
+//////////////////////////////////////////////////////////////////
+// GALLERY
+
+.gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// OVERVIEW
+
+.overview {
+  display: flex;
+
+  &__heading {
+  }
+  &__stars {
+    margin-right: auto; // the margin-right will grow to occupy as much space as possible. Where as flex: 1; would make the element grow to occupy as much space as possible, which we don't want.
+  }
+  &__icon-star,
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary);
+  }
+  &__location {
+  }
+  &__rating {
+  }
+  &__rating-average {
+  }
+  &__rating-count {
+  }
 }
