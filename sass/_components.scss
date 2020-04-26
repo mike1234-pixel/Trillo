@@ -392,18 +392,26 @@
     height: 2rem;
     width: 2rem;
     margin-right: 7px;
-    // Older browsers
-    // background-image: url(../img/SVG/chevron-small-right.svg);
-    // background-size: cover;
+
+    // @supports FEATURE QUERY
 
     //Newer browsers - masks
     // using masks is similar to clipping (e.g.clip-path),
     // but we use our svg icon as the shape through which we can see the background colour
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/SVG/chevron-small-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/SVG/chevron-small-right.svg);
-    mask-size: cover;
+    // if mask-image property is supported, do this:
+
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/SVG/chevron-small-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/SVG/chevron-small-right.svg);
+      mask-size: cover;
+    }
+
+    // Older browsers
+    // othwerwise do this:
+    background-image: url(../img/SVG/chevron-small-right.svg);
+    background-size: cover;
   }
 }
 
