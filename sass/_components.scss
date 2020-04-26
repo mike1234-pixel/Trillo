@@ -14,6 +14,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1; // elements have default order value of 0, so setting an element to 1 pushes that item to the end of the flex-container
+    padding: 0 0 1rem 1rem;
+    min-width: 20rem;
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -185,6 +192,11 @@
       justify-content: center;
       padding: 2rem;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -192,6 +204,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor; // the colour of the current element or the parent (the parent is side-nav__link so it inherits that colour)
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+      margin-bottom: 0.7px;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -235,6 +254,11 @@
     letter-spacing: 1px;
     padding: 1.5re 3rem;
     margin: 0 2rem 0 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &__stars {
     margin-right: auto; // the margin-right will grow to occupy as much space as possible. Where as flex: 1; would make the element grow to occupy as much space as possible, which we don't want.
@@ -265,14 +289,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
